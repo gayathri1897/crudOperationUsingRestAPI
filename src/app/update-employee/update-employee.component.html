@@ -1,0 +1,52 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <img src="assets/images/HCL.png"  width="50" height="50"/>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" 
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" routerLink="/home" routerLinkActive="nav-item nav-link active" >Home</a>
+          <a class="nav-item nav-link" routerLink="/register" routerLinkActive="nav-item nav-link active">
+            Register</a>
+          <a class="nav-item nav-link" routerLink="/employeeList" routerLinkActive="nav-item nav-link active" >EmployeeList</a>
+        </div>
+      </div>
+    </nav>
+
+    <h3 *ngIf = "!exist; else elseBlock">
+      Product doesn't exist
+    </h3>
+    <ng-template #elseBlock>
+    <div class="row">
+        <div class="col-md-5">
+            <p>You can update your details here.....</p>
+            <form #userForm="ngForm" >
+
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" #name="ngModel" required class="form-control" [class.is-invalid]="name.invalid && name.touched" name="name" [(ngModel)]="data.name">
+                <small class="text-danger" [class.d-none]="name.valid || name.untouched">Name is required</small>
+              </div>
+        
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" #email="ngModel" required class="form-control" [class.is-invalid]="email.invalid && email.touched" name="email" [(ngModel)]="data.email">
+                <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is required</small>
+              </div>
+            
+              <div class="form-group">
+                <label>Phone no</label>
+                <input type="number" #phone="ngModel" required class="form-control" [class.is-invalid]="phone.invalid && phone.touched" name="phone" [(ngModel)]="data.phoneNo">
+                <small class="text-danger" [class.d-none]="phone.valid || phone.untouched">phoneNo is required</small>
+              </div>
+
+                <button (click)="updateEmployee(userForm.value)" class="btn btn-primary">Update</button>
+
+            </form>
+        </div>
+    </div>
+  </ng-template>
+</div>
+ 

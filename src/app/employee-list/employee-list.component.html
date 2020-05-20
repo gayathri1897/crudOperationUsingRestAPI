@@ -1,0 +1,37 @@
+<div class="container">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <img src="assets/images/HCL.png"  width="50" height="50"/>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" 
+      aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+          <a class="nav-item nav-link" routerLink="/home" routerLinkActive="nav-item nav-link active" >Home</a>
+          <a class="nav-item nav-link" routerLink="/register" routerLinkActive="nav-item nav-link active">
+            Register</a>
+          <a class="nav-item nav-link" routerLink="/employeeList" routerLinkActive="nav-item nav-link active" >EmployeeList</a>
+        </div>
+      </div>
+    </nav>
+    <table class="table table-sm">
+        <thead>
+          <th>Name</th>
+          <th>Email</th>
+          <th>Mobile</th>
+          <th></th>
+          <th></th>
+        </thead>
+  
+        <tbody>
+          <tr *ngFor="let employee of employees">
+    
+            <td>{{employee.name}}</td>
+            <td>{{employee.email}}</td>
+            <td>{{employee.phoneNo}}</td>
+          <td><button class="btn btn-primary" (click)="onDelete(employee.id)" type="submit">Delete</button></td>
+          <td><button class="btn btn-primary" [routerLink] = "['/updateEmployee', employee.id]" type="submit">Edit</button></td>
+          </tr>
+        </tbody>
+      </table>
+</div>

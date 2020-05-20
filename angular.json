@@ -119,6 +119,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "crudOperation"
+    }
+  },
+  "defaultProject": "crudOperation",
+  "cli": {
+    "analytics": false
+  }
 }
